@@ -1,5 +1,6 @@
 package com.tirwanda.spring.data.jpa.repository;
 
+import com.tirwanda.spring.data.jpa.entity.Guardian;
 import com.tirwanda.spring.data.jpa.entity.Student;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,9 +22,27 @@ class StudentRepositoryTest {
                 .email("edho@gmail.com")
                 .firstName("Edho")
                 .lastName("Tirwanda")
-                .guardianName("Djoko")
-                .guardianEmail("djoko@gmail.com")
-                .guardianMobile("123456")
+                //.guardianName("Djoko")
+                //.guardianEmail("djoko@gmail.com")
+                //.guardianMobile("123456")
+                .build();
+
+        studentRepository.save(student);
+    }
+
+    @Test
+    public void createStudentGuardian() {
+        Guardian guardian = Guardian.builder()
+                .name("umi")
+                .email("umi@gmail.com")
+                .mobile("12323")
+                .build();
+
+        Student student = Student.builder()
+                .firstName("Dwi")
+                .lastName("Tirwanda")
+                .email("dwi@gmail.com")
+                .guardian(guardian)
                 .build();
 
         studentRepository.save(student);
