@@ -2,6 +2,7 @@ package com.tirwanda.spring.data.jpa.repository;
 
 import com.tirwanda.spring.data.jpa.entity.Guardian;
 import com.tirwanda.spring.data.jpa.entity.Student;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -102,4 +103,17 @@ class StudentRepositoryTest {
         Student student = studentRepository.getStudentByEmailAddressNative("edho@gmail.com");
         System.out.println("Student: " + student);
     }
+
+    @Test
+    public void getStudentByEmailAddressNativeNameParamTest() {
+        Student student = studentRepository.getStudentByEmailAddressNativeNameParam("dwi@gmail.com");
+        System.out.println("Student: " + student);
+    }
+
+    @Test
+    public void updateStudentNameByEmailTest() {
+        Integer result = studentRepository.updateStudentNameByEmail("Initial", "dwi@gmail.com");
+        assertEquals(1, result);
+    }
+
 }
