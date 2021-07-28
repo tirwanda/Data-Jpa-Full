@@ -28,8 +28,11 @@ public class CourseMaterial {
     // Declaration for One to One Relationship
     @OneToOne(
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            optional = false
     )
+
+    //Create foreign key
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"

@@ -29,6 +29,7 @@ public class Course {
     private String title;
     private Integer credit;
 
+    // Bi directional relationship
     @OneToOne(
             mappedBy = "course"
     )
